@@ -1,0 +1,11 @@
+.helloWorld{
+    font-family: 'Kiwi Maru', serif;
+    font-size: 50px;
+    font-weight: bold;
+    color: #1167B1;
+    padding-top: 20px;
+}
+
+html, div{
+    background-color: black;
+}
