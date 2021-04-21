@@ -1,11 +1,93 @@
-.helloWorld{
+/* Initial Stuff */
+body{
+    background-color: black;
+}
+  
+.content{
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+    font-size: 24px;
+    text-align: center;
+    color: white;
+    font-weight: 500;
+    margin: 25px;
+}
+  
+.screen{
+    display: none;
+}
+/* Header */
+.topHeader{
+    background-color: #03254C;
     font-family: 'Kiwi Maru', serif;
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bold;
+    text-align: center;
     color: #1167B1;
-    padding-top: 20px;
+}
+/* Navagation Bar */
+.topnav{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #03254C;
+    color: white;
+    font-size: 24px;
+}
+.topnav a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 152px;
+    text-decoration: none;
+    float: left;
+}
+  
+.topnav a:hover{
+    background-color: #1167B1;
+}
+/* Photos */
+* {
+    box-sizing: border-box;
+}
+    
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+  
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+/* Camera */
+.controls{
+    font-size: 16px;
+    text-align: center;
+    padding: 0.5em 0;
+}
+  
+video{
+    width: 100%;
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+}
+/* Button */
+:root {
+    --mdc-theme-primary: #1167B1;
 }
 
-html, div{
-    background-color: black;
+/* Location and Map */
+#map {
+    height: 500px;
+}
+.results{
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
 }
