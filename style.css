@@ -12,6 +12,14 @@ body{
     font-weight: 500;
     margin: 25px;
 }
+
+.infoWindow{
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: black;
+}
   
 .screen{
     display: none;
@@ -35,6 +43,7 @@ body{
     color: white;
     font-size: 24px;
 }
+  
 .topnav a{
     display: block;
     color: white;
