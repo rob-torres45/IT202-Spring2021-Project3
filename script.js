@@ -36,31 +36,78 @@ captureButton.addEventListener('click', () => {
 });
 //Location
 let map;
+
 function initMap() {
-    const myHouse = { lat: 41.78124, lng: -87.80439}
-    // const myHouse = { lat: position.coords.latitude, lng: position.coords.longitude}
-    const contentString = 
-        "<h1>Rob's House Coordinates</h1>" +
-        "<p><b>Coordinates:</b> <br> lat: 41.78124 <br> <t>lng: -87.80439</p>"
-      
-    map = new google.maps.Map(document.querySelector("#map"), {
-        center: myHouse,
-        zoom: 12,
-    });
+  const contentString = 
+    "<p class = 'infoWindow'><i class = 'fas fa-camera-retro'></i> took the photo right here</p>"
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 41.8781, lng: -87.6298 },
+    zoom: 14,
+  });
 
-    let marker = new google.maps.Marker({
-        position: myHouse,
-        map: map,
-    });
+  let infoWindow = new google.maps.InfoWindow();
+  const locationButton = document.createElement("button");
 
-    let infowindow = new google.maps.InfoWindow({
-        content: contentString
-    });
-
-    marker.addListener("click", () => {
-        infowindow.open(map, marker);
-    });
+  locationButton.textContent = "Current Location";
+  locationButton.classList.add("custom-map-control-button");
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(locationButton);
+  locationButton.addEventListener("click", () => {
+    if (navigator.geolocation) {
+      console.log("Hello")
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          infoWindow.setPosition(pos);
+          infoWindow.setContent(contentString);
+          infoWindow.open(map);
+          map.setCenter(pos);
+        },
+        () => {
+          handleLocationError(true, infoWindow, map.getCenter());
+        }
+      );
+    } else {
+      // Browser doesn't support Geolocation
+      handleLocationError(false, infoWindow, map.getCenter());
+    }
+  });
 }
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(
+    browserHasGeolocation
+      ? "Error: The Geolocation service failed."
+      : "Error: Your browser doesn't support geolocation."
+  );
+  infoWindow.open(map);
+}
+// let map;
+// function initMap() {
+//   const contentString = 
+//     "<p>Took The Photo Right Here</p>"
+//   map = new google.maps.Map(document.querySelector("#map"), {
+//     center: {lat: 41.8781, lng: -87.6298},
+//     zoom: 9,
+//   });
+
+//   let marker = new google.maps.Marker({
+//     position: watchID,
+//     map: map,
+//   });
+
+//   let infowindow = new google.maps.InfoWindow({
+//     content: contentString
+//   });
+
+//   marker.addListener("click", () => {
+//     infowindow.open(map, marker);
+//   });
+// }
+
 function geoFindMe() {
 
   const status = document.querySelector('#status');
@@ -93,8 +140,8 @@ function geoFindMe() {
 
   document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
-  const watchID = navigator.geolocation.watchPosition((position) => {
-    doSomething(position.coords.latitude, position.coords.longitude);
-  });
 // Buttons
-const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
+// const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
+
+// How To Access The Coordinates
+// document.querySelector("#map-link").innerText;
