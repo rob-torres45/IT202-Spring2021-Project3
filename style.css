@@ -56,6 +56,21 @@ body{
 .topnav a:hover{
     background-color: #1167B1;
 }
+/* Weather Display */
+.card {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    background-color: #1167B1;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    padding: 20px;
+    margin: 20px;
+}
+    
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 /* Photos */
 * {
     box-sizing: border-box;
