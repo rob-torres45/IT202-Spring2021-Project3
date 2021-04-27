@@ -1,14 +1,14 @@
 // Screens
 let navAnchors = document.querySelectorAll("div#topnav a");
 document.querySelector("#home").style.display = "block";
-navAnchors.forEach( (anchor) => {
+navAnchors.forEach((anchor) => {
   anchor.addEventListener("click", (event) => {
-	document.querySelectorAll(".screen").forEach((screen) => {
-	  screen.style.display = "none";
-	});
-let screen = event.target.getAttribute("data-screen");
-let targetScreen = document.querySelector("#" + screen);
-  targetScreen.style.display = "block";
+    document.querySelectorAll(".screen").forEach((screen) => {
+      screen.style.display = "none";
+    });
+    let screen = event.target.getAttribute("data-screen");
+    let targetScreen = document.querySelector("#" + screen);
+    targetScreen.style.display = "block";
   })
 })
 // Camera
@@ -26,9 +26,9 @@ const constraints = {
 };
 
 navigator.mediaDevices.getUserMedia(constraints)
-.then((stream) => {
-  player.srcObject = stream;
-});
+  .then((stream) => {
+    player.srcObject = stream;
+  });
 
 captureButton.addEventListener('click', () => {
   context.drawImage(player, 0, 0, canvas.width, canvas.height);
@@ -38,7 +38,7 @@ captureButton.addEventListener('click', () => {
 let map;
 
 function initMap() {
-  const contentString = 
+  const contentString =
     "<p class = 'infoWindow'><i class = 'fas fa-camera-retro'></i> took the photo right here</p>"
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: 41.8781, lng: -87.6298 },
@@ -85,28 +85,6 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   );
   infoWindow.open(map);
 }
-// let map;
-// function initMap() {
-//   const contentString = 
-//     "<p>Took The Photo Right Here</p>"
-//   map = new google.maps.Map(document.querySelector("#map"), {
-//     center: {lat: 41.8781, lng: -87.6298},
-//     zoom: 9,
-//   });
-
-//   let marker = new google.maps.Marker({
-//     position: watchID,
-//     map: map,
-//   });
-
-//   let infowindow = new google.maps.InfoWindow({
-//     content: contentString
-//   });
-
-//   marker.addListener("click", () => {
-//     infowindow.open(map, marker);
-//   });
-// }
 
 function geoFindMe() {
 
@@ -117,28 +95,34 @@ function geoFindMe() {
   mapLink.textContent = '';
 
   function success(position) {
-  const latitude  = position.coords.latitude;
-  const longitude = position.coords.longitude;
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
 
-  status.textContent = '';
-  mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
-  mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+    status.textContent = '';
+    mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
+    mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+
+    fetch('https://api.openweathermap.org/data/2.5/weather?lat='+position.coords.latitude+'&lon='+position.coords.longitude+'&appid=e5d24fde103a118f3cdeb022ed1d885b&units=imperial')
+      .then(response => response.json())
+      // .then((data) => console.log(data['weather'][0]['main']))
+      .then((data) => document.querySelector("h2.card-weather").innerText = data['weather'][0]['description'])
   }
 
   function error() {
-  status.textContent = 'Unable to retrieve your location';
+    status.textContent = 'Unable to retrieve your location';
   }
 
-  if(!navigator.geolocation) {
-  status.textContent = 'Geolocation is not supported by your browser';
+  if (!navigator.geolocation) {
+    status.textContent = 'Geolocation is not supported by your browser';
   } else {
-  status.textContent = 'Locating…';
-  navigator.geolocation.getCurrentPosition(success, error);
+    status.textContent = 'Locating…';
+    navigator.geolocation.getCurrentPosition(success, error);
   }
 
-  }
 
-  document.querySelector('#find-me').addEventListener('click', geoFindMe);
+}
+
+document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
 // Buttons
 // const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
