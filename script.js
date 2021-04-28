@@ -14,12 +14,14 @@ navAnchors.forEach((anchor) => {
 // Camera
 const supported = 'mediaDevices' in navigator;
 const player = document.getElementById('player');
-const canvas = document.getElementById('canvas');
+var canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
 const captureButton = document.getElementById('capture');
 const dataDiv = document.getElementById('imageData');
 const visionApiEndpoint = "https://vision.googleapis.com/v1/images:annotate";
 let requestBody;
+var dataURL = canvas.toDataURL('image/jpeg', 1.0);
+console.log(dataURL);
 
 const constraints = {
   video: true,
@@ -28,12 +30,21 @@ const constraints = {
 navigator.mediaDevices.getUserMedia(constraints)
   .then((stream) => {
     player.srcObject = stream;
-  });
+});
 
 captureButton.addEventListener('click', () => {
   context.drawImage(player, 0, 0, canvas.width, canvas.height);
   getImageData("FACE_DETECTION");
+  // console.log(dataURL);
+  // document.querySelector(".card-img-top") = dataURL;
 });
+
+// document.querySelector("#capture").addEventListener("click", (e) => {
+// let pic = document.querySelector("#canvas");
+// document.querySelector(".card-img-top") = pic;
+// });
+
+
 
 // Caption Input
 let buttonPress = document.querySelector(".captionButton");
@@ -43,6 +54,7 @@ buttonPress.addEventListener("click", () => {
   let caption = document.querySelector(".mdc-text-field__input").value;
   snackbar.labelText = "You Entered: " + caption;
   snackbar.open();
+  document.querySelector(".card-text").innerText = caption;
 });
 
 //Location
@@ -112,6 +124,7 @@ function geoFindMe() {
     status.textContent = '';
     mapLink.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
     mapLink.textContent = `Latitude: ${latitude} °, Longitude: ${longitude} °`;
+    document.querySelector(".card-title").innerText = "Location: " + latitude + ", " + longitude;
 
     fetch('https://api.openweathermap.org/data/2.5/weather?lat='+position.coords.latitude+'&lon='+position.coords.longitude+'&appid=e5d24fde103a118f3cdeb022ed1d885b&units=imperial')
       .then(response => response.json())
