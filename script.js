@@ -34,6 +34,17 @@ captureButton.addEventListener('click', () => {
   context.drawImage(player, 0, 0, canvas.width, canvas.height);
   getImageData("FACE_DETECTION");
 });
+
+// Caption Input
+let buttonPress = document.querySelector(".captionButton");
+let snackbar = mdc.snackbar.MDCSnackbar.attachTo(document.querySelector(".mdc-snackbar"));
+
+buttonPress.addEventListener("click", () => {
+  let caption = document.querySelector(".mdc-text-field__input").value;
+  snackbar.labelText = "You Entered: " + caption;
+  snackbar.open();
+});
+
 //Location
 let map;
 
@@ -121,11 +132,10 @@ function geoFindMe() {
 
 
 }
-
 document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
-// Buttons
-// const buttonRipple = new MDCRipple(document.querySelector('.mdc-button'));
+
+
 
 // How To Access The Coordinates
 // document.querySelector("#map-link").innerText;
