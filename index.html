@@ -74,7 +74,6 @@
             <br>
             after allowing access to camera, take the photo you'd like to share to the world!
             <br><br>
-            <br><br>
             <div class = "row">
                 <div class = "column">
                     <video id="player" width="320" height="240" controls autoplay></video>
@@ -90,7 +89,7 @@
             </div>
         </div>
         <hr color: white>
-        <br><br>
+        <br>
         <b>Map</b>
         <br>
         here below, you can find the exact location and pinpoint where you took the photo. share 
@@ -129,7 +128,35 @@
             </div>
         </div>
 
-
+        <hr color: white>
+        <br>
+        <b>Caption</b>
+        <br>
+        great! now that you took your photo, lets come up with a fitting caption for this 
+        amazing snapshot!
+        <br><br>
+        <div class = "row">
+            <div class = "column">
+                <label class="mdc-text-field mdc-text-field--filled mdc-text-field--no-label">
+                    <span class="mdc-text-field__ripple"></span>
+                    <input class="mdc-text-field__input" type="text" placeholder="Caption" aria-label="Label">
+                    <span class="mdc-line-ripple"></span>
+                </label>
+            </div>
+            <div class = "column">
+                <button class="mdc-button mdc-button--raised captionButton">
+                    <span class="mdc-button__label">Enter</span>
+                </button>
+            </div>
+        </div>
+        <br>
+        <div class="mdc-snackbar">
+            <div class="mdc-snackbar__surface" role="status" aria-relevant="additions">
+              <div class="mdc-snackbar__label" aria-atomic="false">
+                Caption Didn't Work
+              </div>
+            </div>
+        </div>
     </div>
     <!-- Settings Screen -->
     <div class = "screen content" id = "settings">
