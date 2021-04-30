@@ -47,7 +47,6 @@ navigator.mediaDevices.getUserMedia(constraints)
 
 captureButton.addEventListener('click', () => {
   context.drawImage(player, 0, 0, canvas.width, canvas.height);
-  getImageData("FACE_DETECTION");
   var dataURL = canvas.toDataURL('image/jpeg', 1.0);
   console.log(dataURL);
   document.querySelector(".card-img-top") = dataURL;
