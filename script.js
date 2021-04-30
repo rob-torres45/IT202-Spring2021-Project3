@@ -47,16 +47,15 @@ navigator.mediaDevices.getUserMedia(constraints)
 
 captureButton.addEventListener('click', () => {
   context.drawImage(player, 0, 0, canvas.width, canvas.height);
-//   getImageData("FACE_DETECTION");
-  // console.log(dataURL);
+  getImageData("FACE_DETECTION");
   var dataURL = canvas.toDataURL('image/jpeg', 1.0);
   console.log(dataURL);
-  document.querySelector(".card-img-top").setAttribute("src", dataURL);
+  document.querySelector(".card-img-top") = dataURL;
 });
 
 document.querySelector("#capture").addEventListener("click", (e) => {
 let pic = document.querySelector("#canvas");
-document.querySelector(".card-img-top") = pic;
+// document.querySelector(".card-img-top") = pic;
 });
 
 
@@ -170,7 +169,3 @@ document.querySelector('#find-me').addEventListener('click', geoFindMe);
 //   names: 'name'
 // });
 
-
-
-// How To Access The Coordinates
-// document.querySelector("#map-link").innerText;
