@@ -34,8 +34,7 @@ const captureButton = document.getElementById('capture');
 const dataDiv = document.getElementById('imageData');
 const visionApiEndpoint = "https://vision.googleapis.com/v1/images:annotate";
 let requestBody;
-var dataURL = canvas.toDataURL('image/jpeg', 1.0);
-console.log(dataURL);
+
 
 const constraints = {
   video: true,
@@ -50,6 +49,8 @@ captureButton.addEventListener('click', () => {
   context.drawImage(player, 0, 0, canvas.width, canvas.height);
   getImageData("FACE_DETECTION");
   // console.log(dataURL);
+  var dataURL = canvas.toDataURL('image/jpeg', 1.0);
+  console.log(dataURL);
   document.querySelector(".card-img-top") = dataURL;
 });
 
