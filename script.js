@@ -51,7 +51,7 @@ captureButton.addEventListener('click', () => {
   // console.log(dataURL);
   var dataURL = canvas.toDataURL('image/jpeg', 1.0);
   console.log(dataURL);
-  document.querySelector(".card-img-top") = dataURL;
+  document.querySelector(".card-img-top").setAttribute("src", dataURL);
 });
 
 document.querySelector("#capture").addEventListener("click", (e) => {
