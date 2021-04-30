@@ -147,7 +147,12 @@ function geoFindMe() {
 }
 document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
+// indexDB
 
+var db = new devicePixelRatio("app_db");
+db.version(1).stores({
+  names: 'name'
+});
 
 
 // How To Access The Coordinates
