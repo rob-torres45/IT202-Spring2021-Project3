@@ -12,6 +12,20 @@ navAnchors.forEach((anchor) => {
   })
 })
 // Camera
+// document.addEventListener('DOMContentLoaded', (ev) => {
+//   let form = document.getElementById("myForm");
+//   // obtain captured image
+//   let input = document.getElementById("capture");
+
+//   input.addEventListener("change", (ev) => {
+//     console.dir(input.files[0]);
+//     if(input.files[0].type.indexOf("image/") > -1){
+//       let img = document.getElementById("img");
+//       img.src = window.URL.createObjectURL(input.files[0]);
+//       document.querySelector(".card-img-top").nodeValue = document.querySelector("#img");
+//     }
+//   })
+// })
 const supported = 'mediaDevices' in navigator;
 const player = document.getElementById('player');
 var canvas = document.getElementById('canvas');
@@ -36,13 +50,13 @@ captureButton.addEventListener('click', () => {
   context.drawImage(player, 0, 0, canvas.width, canvas.height);
   getImageData("FACE_DETECTION");
   // console.log(dataURL);
-  // document.querySelector(".card-img-top") = dataURL;
+  document.querySelector(".card-img-top") = dataURL;
 });
 
-// document.querySelector("#capture").addEventListener("click", (e) => {
-// let pic = document.querySelector("#canvas");
-// document.querySelector(".card-img-top") = pic;
-// });
+document.querySelector("#capture").addEventListener("click", (e) => {
+let pic = document.querySelector("#canvas");
+document.querySelector(".card-img-top") = pic;
+});
 
 
 
@@ -147,12 +161,14 @@ function geoFindMe() {
 }
 document.querySelector('#find-me').addEventListener('click', geoFindMe);
 
+
 // indexDB
 
-var db = new devicePixelRatio("app_db");
-db.version(1).stores({
-  names: 'name'
-});
+// var db = new Dexie("app_db");
+// db.version(1).stores({
+//   names: 'name'
+// });
+
 
 
 // How To Access The Coordinates
