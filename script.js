@@ -12,7 +12,6 @@ navAnchors.forEach((anchor) => {
   })
 })
 // Camera
-
 const supported = 'mediaDevices' in navigator;
 const player = document.getElementById('player');
 var canvas = document.getElementById('canvas');
@@ -36,15 +35,12 @@ captureButton.addEventListener('click', () => {
   context.drawImage(player, 0, 0, canvas.width, canvas.height);
   var dataURL = canvas.toDataURL('image/jpeg', 1.0);
   console.log(dataURL);
-  document.querySelector(".card-img-top") = dataURL;
+  document.querySelector(".card-img-top").setAttribute("src", dataURL);
 });
 
 document.querySelector("#capture").addEventListener("click", (e) => {
 let pic = document.querySelector("#canvas");
-// document.querySelector(".card-img-top") = pic;
 });
-
-
 
 // Caption Input
 let buttonPress = document.querySelector(".captionButton");
