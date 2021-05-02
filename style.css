@@ -115,3 +115,7 @@ video{
     font-weight: bold;
     color: white;
 }
+
+p>img{
+    max-width: 50%;
+}
