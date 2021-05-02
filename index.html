@@ -41,7 +41,7 @@
             <br>
             <p>
             welcome to skyGram! the purpose of this app is to show off your best picture that captures the beauty of 
-            the sky. whether its a nice cloudy scene, sunset or sunrise, upload it here on the app and to show it off 
+            the sky. whether its a nice cloudy scene, sunset or sunrise, upload it here on the app and show it off 
             to the world.
             </p>
         </div>
@@ -49,13 +49,19 @@
         <div class = "row">
             <div class = "column">
                 <img src = "sky1.jpg" alt = "sky photo 1" style="width:100%">
+                <div id = "pictureCaption" style="font-size: 15px;">Denver, Colorado 2021</div>
             </div>
             <div class = "column">
                 <img src = "sky2.jpg" alt = "sky photo 1" style="width:100%">
+                <div id = "pictureCaption" style="font-size: 15px;">Ann Arbor, Michigan 2021</div>
             </div>
             <div class = "column">
                 <img src = "sky3.jpeg" alt = "sky photo 1" style="width:100%">
+                <div id = "pictureCaption" style="font-size: 15px;">Chicago, IL 2021</div>
             </div>
+        </div>
+        <div id = "pictureCaption" style="font-size: 15px;">
+            (Yes! these pictures were taken by me, Roberto T)
         </div>
         <br>
 
@@ -66,6 +72,7 @@
             picture for others to see and check it on their own
             <br><br>
             3.) after capturing your photo, write a caption that best fits the moment!
+            4.) your skyGram post is ready to go!
         </div>
     </div>
     <!-- MySkyGram Screen -->
@@ -163,38 +170,33 @@
     <div class = "screen content" id = "gallery">
         <b>my gallery</b>
         <br><br>
-        recent post
-        
-        <!-- <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="..." alt="Card image cap">
-            <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        my recent post
+        <div class = "row">
+            <div class = "column">
+                
             </div>
-        </div> -->
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src= "..." alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title" style="font-size: small;">Coordinates</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <div class = "column">
+                <div class="card" style="width: 375px;">
+                    <img class= "card-img-top" src= "..." alt="Card image cap">
+                    <div class=" card-body">
+                    <i class= "fa fa-heart" style="font-size: 25px;color:red">&emsp;&emsp;</i>
+                    <i class = "fas fa-comment" style = "font-size: 25px; color: darkgrey">&emsp;&emsp;</i>
+                    <i class = "fas fa-share" style = "font-size: 25px; color: black">&emsp;&emsp;</i>
+                    <h5 class="card-title" style="font-size: small;">Coordinates</h5>
+                    <p class="card-text">create a caption first</p>
+                </div>
             </div>
         </div>
     </div>
-
     <!-- Settings Screen -->
     <div class = "screen content" id = "settings">
       this is the settings page
       <br>
       the purpose of this app was to demonstrate my understanding of what i learned over the semester by enrolling into IT202. 
       I definitely learned alot as I started out with 0 knowledge in HTML, CSS, and JavaScript. happy to see how much I learned
-      and have found a stronger interest in this area of the programming field. ]
-
-      <!-- if you are doing a dark/light mode
-        document.body.style = "background-color: white";
-        document.querySelector(".content").style = "color:black"; -->
+      and have found a stronger interest in this area of the programming field.
     </div>
 
-    
     <script src="./script.js"></script>
     <script>
         if('serviceWorker' in navigator){
